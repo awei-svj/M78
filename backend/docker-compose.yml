@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./data.db
+    volumes:
+      - ./app:/app
+    depends_on: []
+  # If you want to run Postgres, uncomment and adjust DATABASE_URL in .env
+  # db:
+  #   image: postgres:15
+  #   environment:
+  #     POSTGRES_DB: maotai
+  #     POSTGRES_USER: maotai
+  #     POSTGRES_PASSWORD: example
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+#volumes:
+#  pgdata:
